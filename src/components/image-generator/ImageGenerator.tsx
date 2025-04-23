@@ -47,7 +47,7 @@ export default function ImageGenerator() {
         <h1 className="text-4xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-primary via-purple-500 to-primary">
           POV AI Generator
         </h1>
-        <div className="absolute right-0 top-1/2 -translate-y-1/2">
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 hidden md:block">
           <ThemeToggle />
         </div>
       </div>

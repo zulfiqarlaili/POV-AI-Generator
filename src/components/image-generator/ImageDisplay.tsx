@@ -25,7 +25,7 @@ export function ImageDisplay({ imageUrl, isLoading, prompt }: ImageDisplayProps)
           <div className="animate-pulse text-muted-foreground">
             <Loader2 className="h-12 w-12 animate-spin mx-auto" />
             <p className="mt-4 text-base max-w-[90%] mx-auto">
-              Generating your masterpiece...
+              Crafting your visual story...
             </p>
           </div>
         </div>
@@ -33,9 +33,11 @@ export function ImageDisplay({ imageUrl, isLoading, prompt }: ImageDisplayProps)
 
       {!isLoading && !imageUrl && (
         <div className="text-center text-muted-foreground p-8">
-          <p className="text-lg mb-2">Your image will appear here</p>
+          <p className="text-lg mb-2">
+            Unleash your imagination! ✨
+          </p>
           <p className="text-sm">
-            Enter a detailed description and click "Generate Image"
+            Describe your dream POV and watch the magic happen. ✨
           </p>
         </div>
       )}

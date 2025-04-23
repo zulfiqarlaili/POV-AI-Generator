@@ -12,7 +12,8 @@ export function ParticleBackground() {
 
     let animationFrameId: number;
     const particles: Particle[] = [];
-    const particleCount = 50;
+    const particleCount = 75; // Increased particle count
+    const particleColor = 'hsla(270, 60%, 70%,'; // Adjusted color for better visibility
 
     class Particle {
       x: number;
@@ -27,9 +28,9 @@ export function ParticleBackground() {
         this.x = Math.random() * canvas.width;
         this.y = Math.random() * canvas.height;
         this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 0.5 - 0.25;
-        this.speedY = Math.random() * 0.5 - 0.25;
-        this.opacity = Math.random() * 0.5 + 0.2;
+        this.speedX = (Math.random() * 0.5 - 0.25) * 0.75; // Slightly reduced speed
+        this.speedY = (Math.random() * 0.5 - 0.25) * 0.75; // Slightly reduced speed
+        this.opacity = Math.random() * 0.6 + 0.4; // Adjusted opacity range
         this.fadeDirection = Math.random() > 0.5 ? 1 : -1;
       }
 
@@ -38,8 +39,8 @@ export function ParticleBackground() {
         this.y += this.speedY;
         this.opacity += 0.005 * this.fadeDirection;
 
-        if (this.opacity >= 0.7) this.fadeDirection = -1;
-        if (this.opacity <= 0.2) this.fadeDirection = 1;
+        if (this.opacity >= 0.85) this.fadeDirection = -1; // Adjusted max opacity
+        if (this.opacity <= 0.25) this.fadeDirection = 1; // Adjusted min opacity
 
         if (this.x < 0) this.x = canvas.width;
         if (this.x > canvas.width) this.x = 0;
@@ -49,7 +50,7 @@ export function ParticleBackground() {
 
       draw() {
         if (!ctx) return;
-        ctx.fillStyle = `hsla(262, 83%, 58%, ${this.opacity})`;
+        ctx.fillStyle = `${particleColor} ${this.opacity})`;
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
         ctx.fill();
